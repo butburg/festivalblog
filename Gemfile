@@ -72,3 +72,7 @@ end
 group :development do
   gem 'bullet'
 end
+
+group :development do
+  gem 'brakeman', require: false
+end
