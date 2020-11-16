@@ -68,3 +68,7 @@ group :development do
   gem 'pry-rails'
   gem 'pry-byebug', platform: :ruby
 end
+
+group :development do
+  gem 'bullet'
+end
