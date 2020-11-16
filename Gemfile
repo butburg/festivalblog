@@ -84,3 +84,7 @@ end
 group :development do
   gem "rubocop-rails_config"
 end
+
+group :development do
+  gem 'solargraph'
+end
