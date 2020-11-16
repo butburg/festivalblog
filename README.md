@@ -1,24 +1,32 @@
-# README
+# Readme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## License
 
-Things you may want to cover:
+All source code is available jointly under the MIT License and the Beerware License. See
+[LICENSE.md](LICENSE.md) for details.
 
-* Ruby version
+## Getting started
 
-* System dependencies
+To get started with the app, clone the repo and then install the needed gems:
 
-* Configuration
+```bash
+./bin/setup
+```
 
-* Database creation
+Finally, run the test suite to verify that everything is working correctly:
 
-* Database initialization
+```bash
+rails test
+```
 
-* How to run the test suite
+If the test suite passes, you'll be ready to run the app in a local server:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+./bin/webpack-dev-server
+```
 
-* Deployment instructions
+Open new terminal tab:
 
-* ...
+```bash
+rails server
+```
