@@ -76,3 +76,7 @@ end
 group :development do
   gem 'brakeman', require: false
 end
+
+group :development do
+  gem 'bundler-audit', require: false
+end
