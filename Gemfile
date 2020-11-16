@@ -26,6 +26,8 @@ gem 'bootstrap-sass'
 
 gem 'slim-rails'
 
+gem 'bigdecimal', '1.3.5'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
