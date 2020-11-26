@@ -1,0 +1,12 @@
+header.nav.navbar.navbar-expand-lg.fixed-top.navbar-light.bg-light
+  = link_to  image_tag("logo.png", alt: "P.E. Logo", size: "30x30"), root_path, id: "logo", class: "navbar-brand"
+  button.navbar-toggler type="button" data-toggle="collapse" \
+    data-target="#navbarHeader" aria-controls="navbarText" \
+    aria-expanded="false" aria-label="Toggle navigation"
+    span.navbar-toggler-icon
+  #navbarHeader.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item = link_to  "Home", root_path, class: "nav-link"
+      li.nav-item = link_to  "About", generalpages_about_path, class: "nav-link"
+      li.nav-item = link_to  "Articles", articles_path, class: "nav-link"
+      li.nav-item = link_to  "Log in", "#", class: "nav-link"
