@@ -21,7 +21,7 @@
 
 $wine-red: #8C3E77;
 $purple: #403873;
-$light-blue : #05F2DB;
+$light-blue: #05F2DB;
 $light-grey: #C5D9D2;
 $dark: #0D0D0D;
 
@@ -30,18 +30,19 @@ $dark: #0D0D0D;
 
 body {
   height: 100%;
-  padding-top: 80px;
   background-color: $light-grey;
   font-family: 'Maven Pro', sans-serif;
   color: $dark;
 }
 
 section {
-  overflow: auto;
+  overflow: -moz-scrollbars-vertical;
+  overflow: scroll;
 }
 
 .center {
   text-align: center;
+
   h1 {
     margin-bottom: 10px;
   }
@@ -75,37 +76,50 @@ p {
   line-height: 1.7em;
 }
 
+a:hover {
+  text-decoration: none;
+  color: $wine-red;
+}
+
 /* header */
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+.navbar {
+  border: 0px none;
+  border-bottom: 2px solid $purple;
+  border-radius: 0px;
 }
+
+.navbar-brand {
+  padding: 0px;
+  margin: 0px;
+}
+
+.navbar:before, .navbar:after {
+  display: inherit;
+  content: inherit;
+}
+
 
 /* footer */
 
 footer {
   margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $purple;
-  background-color: $light-grey;
+  border-top: 2px solid $purple;
+
   a {
-    color: #555;
     &:hover {
-      color: #222;
+      background-color: inherit !important;
     }
   }
+
   small {
     float: left;
   }
+
   ul {
     float: right;
     list-style: none;
+
     li {
       float: left;
       margin-left: 15px;
@@ -113,7 +127,7 @@ footer {
   }
 }
 
-a.undercover{
+a.undercover {
   font-weight: bold;
   color: $dark;
 }
