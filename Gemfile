@@ -7,7 +7,7 @@ ruby "2.7.0"
 gem "rails", "~> 6.0.3", ">= 6.0.3.4"
 
 # Use Puma as the app server
-gem "puma", "~> 4.1"
+gem "puma", "~> 4.3"
 # Use SCSS for stylesheets
 gem "sass-rails", ">= 6"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -94,9 +94,10 @@ group :development do
 end
 
 group :development do
-  gem 'solargraph'
+  gem "solargraph"
 end
 
 group :production do
-  gem "pg"
+  # Use postgreSQL for heroku
+  gem "pg", "~> 1.2.3"
 end

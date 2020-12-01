@@ -320,10 +320,10 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   license_finder
   listen (~> 3.2)
-  pg
+  pg (~> 1.2.3)
   pry-byebug
   pry-rails
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.3, >= 6.0.3.4)
   rails-controller-testing
   rubocop-rails_config
