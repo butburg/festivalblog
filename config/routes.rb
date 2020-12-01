@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'generalpages/home'
-  get 'generalpages/about'
-  get 'generalpages/legal'
+  get "about", to: "generalpages#about"
+  get "legal", to: "generalpages#legal"
 
   resources :articles
 
