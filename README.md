@@ -66,7 +66,7 @@ Hard Features:
 * How to get yarn for your system: https://classic.yarnpkg.com/en/docs/install/#alternatives-stable
 
 
-* ####Maybe you need to follow the steps below to run the app:
+* #### Maybe you need to follow the steps below to run the app:
 
   install yarn
   ```bash
