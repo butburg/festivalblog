@@ -1,0 +1,11 @@
+h2 =< @article.title
+.center
+  = image_tag("logo.png", alt: "P.E. Logo", title: "Home")
+  p
+    strong =< @article.description
+
+p
+  =< @article.text
+
+p
+  a href="#" onclick="history.go(-1)"  Go Back
