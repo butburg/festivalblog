@@ -1,13 +1,11 @@
-p
-  strong Title:
-  =< @article.title
+h1 Overview
+h2 =< @article.title
+.center
+  = image_tag("logo.png", alt: "P.E. Logo", title: "Home")
+  p
+    strong =< @article.description
 
 p
-  strong Description:
-  =< @article.description
-
-p
-  strong Text:
   =< @article.text
 
 p
