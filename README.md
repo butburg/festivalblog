@@ -50,7 +50,7 @@ Hard Features:
 
 ## Systemrequirements
 * Ruby
-    * Version: 2.7.2
+    * Version: 2.7.0
 * Rails
     * Version: 6.0.3.4
 * Others:
