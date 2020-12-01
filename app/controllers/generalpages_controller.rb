@@ -1,6 +1,6 @@
+# frozen_string_literal: true
+
 class GeneralpagesController < ApplicationController
-  def home
-  end
 
   def about
   end

@@ -33,6 +33,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def home
+    @articles = Article.all
+  end
+
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
