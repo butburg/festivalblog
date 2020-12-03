@@ -1,22 +1,20 @@
-h1 Uploads#index
-p Find me in app/views/uploads/index.html.slim
 - if !flash[:notice].blank?
   .alert.alert-info
     = flash[:notice]
 br
-= link_to "New Resume", new_resume_path, class: "btn btn-primary"
+= link_to "New upload", new_upload_path, class: "btn btn-primary"
 br
 br
 table.table.table-bordered.table-striped
   thead
-    | \.
+    |
     tr
       th Name
-      th Download Link
+      //th Download Link
       th
   tbody
-    - @resumes.each do |resume|
+    - @uploads.each do |upload|
       tr
-        td= resume.name
-        td= link_to "Download Resume", resume.attachment_url
-        td= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete # resume.name ?"
+        td= upload.name
+        //td= link_to "Download Resume", upload.attachment_url
+        td= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name} ?"
