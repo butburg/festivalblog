@@ -27,6 +27,10 @@ gem 'slim-rails'
 
 gem 'bigdecimal', '1.3.5'
 
+
+# for articles image upload
+gem "carrierwave"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
