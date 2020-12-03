@@ -30,6 +30,7 @@ gem 'bigdecimal', '1.3.5'
 
 # for articles image upload
 gem "carrierwave"
+gem "file_validators"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
