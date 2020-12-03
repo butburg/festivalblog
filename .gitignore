@@ -43,6 +43,9 @@ yarn-debug.log*
 # Ignore Spring files.
 /spring/*.pid
 
+# Ignore image uploads by carrierwave
+/public/uploads
+
 .vscode/
 .idea/
 *.iml

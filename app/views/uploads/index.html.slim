@@ -17,4 +17,8 @@ table.table.table-bordered.table-striped
       tr
         td= upload.name
         //td= link_to "Download Resume", upload.attachment_url
-        td= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name} ?"
+        td= image_tag(upload.attachment_url)
+        td= button_to "Delete", upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name} ?"
+
+
+
