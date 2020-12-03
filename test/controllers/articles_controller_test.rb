@@ -1,7 +1,9 @@
 require "test_helper"
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
-
+  def setup
+    @base_title = "Festivalblog"
+  end
 
   #### ROOT HOME ####
   test "should get root" do
@@ -17,37 +19,37 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   #### INDEX SHOW ####
   test "should get index" do
-    get index
+    get articles_url
     assert_response :success
   end
 
   test "should render index" do
-    get index
-    assert_select "title", " | #{@base_title}"
+    get articles_url
+    assert_select "title", "#{@base_title}"
   end
 
 
   #### NEW ####
   test "should get new" do
-    get new
+    get articles_url
     assert_response :success
   end
 
   test "should render new" do
-    get new
-    assert_select "new", " | #{@base_title}"
+    get articles_url
+    assert_select "title", "#{@base_title}"
   end
 
 
   #### EDIT ####
   test "should get edit" do
-    get edit
+    get articles_url
     assert_response :success
   end
 
   test "should render edit" do
-    get edit
-    assert_select "title", " | #{@base_title}"
+    get articles_url
+    assert_select "title", "#{@base_title}"
   end
 
 end
