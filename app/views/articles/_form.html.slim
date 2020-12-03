@@ -1,13 +1,5 @@
 = form_with model: @article, local: true do |form|
-  - if @article.errors.any?
-    #error_explanation
-      h2
-        => pluralize(@article.errors.count, "Error")
-        | prohibited this article from being saved:
-      ul
-        - @article.errors.full_messages.each do |msg|
-          li= msg
-          
+  = render 'layouts/error', object: @article
   .form-group
     = form.label :title, class: "col-md-4 control-label"
     .col-md-8
