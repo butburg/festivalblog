@@ -2,4 +2,4 @@
 h1 Your Events
 
 .center
-  = render 'overview'
+  = render(@articles) || "There's no event to be displayed :("
