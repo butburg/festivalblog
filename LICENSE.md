@@ -1,4 +1,5 @@
 All source code is available jointly under the MIT License and the Beerware License.
+
 ```
 The MIT License
 

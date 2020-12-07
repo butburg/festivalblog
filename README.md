@@ -108,5 +108,6 @@ The Gemfile.lock is auto-generated and it describes exactly what versions of eve
   ```
 
 ## License
+
 All source code is available jointly under the MIT License and the Beerware License. See
 [LICENSE.md](LICENSE.md) for details.
