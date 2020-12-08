@@ -1,0 +1,164 @@
+/*
+  *= require bootstrap
+  *= require_tree .
+  *= require_self
+*/
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+//font-family: 'Maven Pro', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+//font-family: 'Work Sans', sans-serif;
+
+
+$wine-red: #8C3E77;
+$purple: #403873;
+$light-blue: #05F2DB;
+$light-grey: #C5D9D2;
+$dark: #0D0D0D;
+
+
+/* universal */
+
+body {
+  height: 100%;
+  background-color: $light-grey;
+  font-family: 'Maven Pro', sans-serif;
+  color: $dark;
+  overflow-y: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+section {
+  overflow: -moz-scrollbars-vertical;
+  overflow: scroll;
+}
+
+.center {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1em;
+  color: $wine-red;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  color: $wine-red;
+  font-size: 2.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1.3em;
+  line-height: 1.7em;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $wine-red;
+}
+
+/* header */
+
+.navbar {
+  font-size: 1.3em;
+  border: 0px none;
+  border-bottom: 2px solid $purple;
+  border-radius: 0px;
+}
+
+.navbar-brand {
+  padding: 0px;
+  margin: 0px;
+  //position: absolute;
+  //transform: translateX(-50%);
+  //left: 50%;
+}
+
+/* This is a temp dirty bug fix */
+.navbar:before, .navbar:after {
+  display: inherit;
+  content: inherit;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  border-top: 2px solid $purple;
+
+  a {
+    &:hover {
+      background-color: inherit !important;
+    }
+  }
+
+  small {
+    float: left;
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+#article{
+
+}
+
+a.undercover {
+  font-weight: bold;
+  color: $dark;
+}
+
+.card{
+  max-width: 600px;
+  margin-bottom: 10px;
+  background-color: $purple;
+  border: 2px outset $light-blue;
+}
+
+.card h2{
+  color: $light-blue;
+}
+
+.card p{
+  color: $light-grey;
+}
+
+.card img{
+  -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%);
+    mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%);
+}
+
+.card .btn{
+  background-color: $dark;
+  border-color: $light-blue;
+}
+
+.card .btn:hover{
+  color: $light-blue;
+}
+

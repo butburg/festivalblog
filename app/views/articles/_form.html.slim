@@ -1,0 +1,19 @@
+= form_with model: @article, local: true do |form|
+  = render 'layouts/error', object: @article
+  .form-group
+    = form.label :title, class: "col-md-4 control-label"
+    .col-md-8
+      = form.text_field :title, class: "form-control"
+      
+  .form-group
+    = form.label :description, class: "col-md-4 control-label"
+    .col-md-8
+      = form.text_field :description, class: "form-control"
+      
+  .form-group
+    = form.label :text, class: "col-md-4 control-label"
+    .col-md-8
+      = form.text_area :text, class: "form-control"
+      
+  p
+    = form.submit

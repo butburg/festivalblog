@@ -1,0 +1,11 @@
+h1 Articles
+
+table.table
+  thead
+    tr
+      th Title
+      th Description
+    = render(partial: 'articleTable', collection: @articles) || "There's no event to be displayed :("
+
+p     
+  = link_to  "New article", new_article_path
