@@ -1,9 +1,6 @@
-Das sollte in Rails 6 nicht nötigt sein. Da man hier einen config/master.key nutzt. 
-Der muss dann verteilt werden, an alle Entwickler, natürlich sicher. Diese Zeilen sollten hier weg.
+Auch hier, könnte man das Rendern der Liste auslagern. 
+https://edgeguides.rubyonrails.org/layouts_and_rendering.html#rendering-collections
 
-Schaut dazu bitte diesen Artikel an, der das erklärt.
-https://medium.com/cedarcode/rails-5-2-credentials-9b3324851336
+app/views/articles/index.html.slim
 
-config/application.rb
-
-Line 14 - 16
+Line 5 - 8
