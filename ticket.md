@@ -1,6 +1,4 @@
-Ist es gewollt, dass hier 3 Container im Body sind? An sich wird immer nur eins benötigt bzw. benutzt. 
-Wenn ihr den Body in mehrere "Zeilen" unterteilen wollt, ist dazu die Klasse .row von Bootstrap die richtige Wahl.
+Nein, das ist keine richtige Einbindung von Gems in Rails. 
+Bitte ein Gem benutzen oder Moduls über Yarn installieren. WIe in Vorlesung gezeigt.
 
-app/views/layouts/application.html.slim
-
-Line 10 - 15
+app/views/layouts/_rails_defaults.html.slim
