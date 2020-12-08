@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.all.reverse
   end
   def new
     @article = Article.new
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   end
 
   def home
-    @articles = Article.all
+    @articles = Article.all.reverse
   end
 
   def destroy
