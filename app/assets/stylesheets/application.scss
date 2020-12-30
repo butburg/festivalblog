@@ -35,6 +35,7 @@ body {
   color: $dark;
   overflow-y: -moz-scrollbars-vertical;
   overflow-y: scroll;
+  font-size: 17px;
 }
 
 section {
@@ -59,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2.059em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
@@ -67,7 +68,7 @@ h1 {
 
 h2 {
   color: $wine-red;
-  font-size: 2.2em;
+  font-size: 1.647em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
@@ -75,7 +76,7 @@ h2 {
 }
 
 p {
-  font-size: 1.3em;
+  font-size: 1em;
   line-height: 1.7em;
 }
 
@@ -87,7 +88,6 @@ a:hover {
 /* header */
 
 .navbar {
-  font-size: 1.3em;
   border: 0px none;
   border-bottom: 2px solid $purple;
   border-radius: 0px;
@@ -112,6 +112,7 @@ a:hover {
 footer {
   margin-top: 45px;
   border-top: 2px solid $purple;
+  font-size: 0.765em;
 
   a {
     &:hover {
@@ -136,6 +137,15 @@ footer {
 
 #article{
 
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.btn {
+  font-size: 1em;
 }
 
 a.undercover {
