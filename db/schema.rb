@@ -16,15 +16,10 @@ ActiveRecord::Schema.define(version: 2020_12_03_120303) do
     t.string "title"
     t.string "description"
     t.text "text"
+    t.string "img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "uploads", force: :cascade do |t|
-    t.string "name"
-    t.string "attachment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
 end
