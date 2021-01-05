@@ -43,6 +43,9 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"
+  # lat the minimagic gem work properly for img upload and scale
+  gem 'rmagick', '~> 2.15', '>= 2.15.4'
+
 end
 
 

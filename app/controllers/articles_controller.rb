@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to @article
+      redirect_to @article, notice: "The upload has been succeed."
     else
       render "new"
     end
@@ -46,7 +46,7 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :description, :text, :created_at)
+      params.require(:article).permit(:title, :description, :text, :img, :created_at)
     end
 
 end

@@ -1,6 +1,6 @@
 h2 =< @article.title
 .center
-  = image_tag("logo.png", alt: "P.E. Logo", title: "Home")
+  = image_tag(@article.img_url)
   p
     strong =< @article.description
 
