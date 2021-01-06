@@ -135,7 +135,7 @@ footer {
   }
 }
 
-#article{
+#article {
 
 }
 
@@ -153,32 +153,45 @@ a.undercover {
   color: $dark;
 }
 
-.card{
+.card {
   max-width: 600px;
   margin-bottom: 10px;
   background-color: $purple;
   border: 2px outset $light-blue;
 }
 
-.card h2{
+.card h2 {
   color: $light-blue;
 }
 
-.card p{
+.card p {
   color: $light-grey;
 }
 
-.card img{
-  -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%);
-    mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%);
+.card img {
+  -webkit-mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 40%);
+  mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 40%);
 }
 
-.card .btn{
+.article-badge-img {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.article-badge {
+  h3, p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.card .btn {
   background-color: $dark;
   border-color: $light-blue;
 }
 
-.card .btn:hover{
+.card .btn:hover {
   color: $light-blue;
 }
 

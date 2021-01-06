@@ -6,7 +6,9 @@ h2 =< @article.title
 
 p
   =< simple_format h(@article.text)
-
+.mb-1.text-muted
+  | last edit at
+  =< @article.updated_at.localtime.strftime("%d/%m/%Y")
 p
   = link_to "Home", root_path
   

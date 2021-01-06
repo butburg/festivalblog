@@ -35,19 +35,19 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  # Process files as they are uploaded:
+  # Process files as they are uploaded(W*H):
   #process scale: [800, 800]
-  process resize_to_fit: [800, 450]
   #
   #def scale(width, height)
   #  resize_to_fit: [width, height]
   #end
 
+  process resize_to_fit: [800, 450]
+
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [150, 150]
+    process resize_to_fill: [200, 200]
   end
-
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
