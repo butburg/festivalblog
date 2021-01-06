@@ -1,0 +1,8 @@
+- if @user.errors.any?
+  #error_explanation
+    .alert.alert-danger
+      => pluralize(@user.errors.count, "Error")
+      | prohibited this article from being saved:
+    ul
+      - @user.errors.full_messages.each do |msg|
+        li= msg
