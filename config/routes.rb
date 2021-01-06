@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get "users/new"
   get "about", to: "generalpages#about"
   get "legal", to: "generalpages#legal"
 
