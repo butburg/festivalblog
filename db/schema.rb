@@ -10,20 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_182831) do
+ActiveRecord::Schema.define(version: 2021_01_11_215050) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.text "text"
     t.string "img"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "uploads", force: :cascade do |t|
-    t.string "name"
-    t.string "attachment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -35,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_182831) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
