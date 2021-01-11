@@ -16,7 +16,6 @@ nav.navbar.navbar-expand-lg.fixed-top.navbar-light
             | User
           .dropdown-menu aria-labelledby="navbarUsersDropdown"
             = link_to "Profile", current_user, class: "dropdown-item"
-            = link_to "Setting", "#", class: "dropdown-item"
             .dropdown-divider
             = link_to "Log out", logout_path, method: :delete, \
                     class: "dropdown-item"

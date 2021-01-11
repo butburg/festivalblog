@@ -1,12 +1,5 @@
 = form_with model: @article, local: true do |form|
-  - if @article.errors.any?
-    #error_explanation
-      h2
-        => pluralize(@article.errors.count, "Error")
-        | prohibited this article from being saved:
-      ul
-        - @article.errors.full_messages.each do |msg|
-          li= msg
+  = render 'shared/error_msg', object: @article
 
   .form-group
     = form.label :title, class: "col-md-4 control-label"
@@ -24,8 +17,9 @@
       = form.text_area :text, class: "form-control"
       
   .form-group
-    = form.label :image, class: "col-md-4 control-label"
+    = form.label :img, "Image", class: "col-md-4 control-label"
     .col-md-8
-      = form.file_field :img, class: "form-control"
+      = form.file_field :img
 
-  p = form.submit
+  .form-group
+    = form.submit
