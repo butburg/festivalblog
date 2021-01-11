@@ -7,8 +7,9 @@ nav.navbar.navbar-expand-lg.fixed-top.navbar-light
     ul.navbar-nav.mr-auto
       li.nav-item = link_to "Home", root_path, class: "nav-link"
       li.nav-item = link_to "About", about_path, class: "nav-link"
-      li.nav-item = link_to "Articles", articles_path, class: "nav-link"
+      
       - if logged_in?
+        li.nav-item = link_to "Articles", articles_path, class: "nav-link"
         li.nav-item.dropdown
           a#navbarUsersDropdown.nav-link.dropdown-toggle [role="button"
             data-toggle="dropdown" aria-haspopup="true"

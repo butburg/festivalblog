@@ -4,6 +4,10 @@ h1 = yield(:title)
 
 .row
   .col-md-6.offset-md-3
+    - if !alert.nil?
+      .alert.alert-danger
+        = alert
+
     = form_with(url: login_path, scope: :session, local: true) do |f|
       
       / TODO = render 'shared/error_msg', object: session
