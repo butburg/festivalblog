@@ -1,21 +1,28 @@
-h1 Listin articles
+-provide(:title, "Articles")
 
-.container
-  table.table
-    thead
-      tr
-        th Title
-        th Description
-    - @articles.each do |article|
-      tbody
-        tr
-          td= link_to article.title, article_path(article), class: "undercover"
-          td= article.description
-          td= link_to 'Show', article_path(article)
-          td= link_to 'Edit', edit_article_path(article)
-          td= link_to 'Destroy', article_path(article), \
-                method: :delete, \
-                data: {confirm: 'Are you sure?'}
+h1 Articles
 
-  p     
-    = link_to  "New article", new_article_path
+p.text-center     
+  = link_to "Write New Article", new_article_path
+.row.mb-2
+  - @articles.reverse_each do |article|
+    .article-badge.col-md-6
+      .row.no-gutters.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.position-relative
+        .col-4.d-none.d-lg-block
+          = link_to image_tag(article.img.thumb.url, alt: "", class: "article-badge-img"), article_path(article)
+        .col.p-3.d-flex.flex-column.position-static
+          h3= link_to article.title, article_path(article), class: "undercover"
+          .mb-1.text-muted
+            | created at
+            =< article.created_at.localtime.strftime("%k:%M %d/%m/%Y")
+          .mb-1.text-muted
+            | updated at
+            =< article.updated_at.localtime.strftime("%k:%M %d/%m/%Y")
+
+          p.card-text.mb-auto= article.description
+          p
+            = link_to 'Edit', edit_article_path(article)
+            |
+            =< link_to 'Destroy', article_path(article), \
+                         method: :delete, \
+                         data: {confirm: 'Are you sure?'}

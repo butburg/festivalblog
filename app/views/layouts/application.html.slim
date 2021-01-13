@@ -5,7 +5,11 @@ html
     = render  "layouts/rails_defaults"
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     meta content="width=device-width, initial-scale=1" name="viewport" /
+    = favicon_link_tag
   body
-    =render "layouts/header"  
-    = yield
-    =render "layouts/footer"
+    .container
+      =render "layouts/header"  
+    .container#article
+      = yield
+    .container
+      =render "layouts/footer"

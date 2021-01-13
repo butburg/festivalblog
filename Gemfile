@@ -5,10 +5,9 @@ ruby "2.7.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.0.3", ">= 6.0.3.4"
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+
 # Use Puma as the app server
-gem "puma", "~> 4.1"
+gem "puma", "~> 4.3"
 # Use SCSS for stylesheets
 gem "sass-rails", ">= 6"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -28,6 +27,11 @@ gem 'slim-rails'
 
 gem 'bigdecimal', '1.3.5'
 
+
+# for articles image upload
+gem "carrierwave"
+gem "file_validators"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -37,7 +41,13 @@ gem "bootsnap", ">= 1.4.2", require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  # Use sqlite3 as the database for Active Record
+  gem "sqlite3", "~> 1.4"
+  # lat the minimagic gem work properly for img upload and scale
+  gem 'rmagick', '~> 2.15', '>= 2.15.4'
+
 end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -92,5 +102,10 @@ group :development do
 end
 
 group :development do
-  gem 'solargraph'
+  gem "solargraph"
+end
+
+group :production do
+  # Use postgreSQL for heroku
+  gem "pg", "~> 1.2.3"
 end

@@ -1,5 +1,7 @@
-h1 New Article
-.container
-  = render 'form'
+-provide(:title, "New article")
 
-  =link_to "Back", articles_path
+h1 New Article
+
+= render 'form'
+
+p = link_to "Back", articles_path

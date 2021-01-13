@@ -1,15 +1,18 @@
-.container
-  p
-    strong Title:
-    =< @article.title
+-provide(:title, @article.title)
+
+h2 =< @article.title
+.center
   
-  p
-    strong Description:
-    =< @article.description
+  = image_tag(@article.img.url, class: "articleImage")
+  p.articleDescription
+    strong =< @article.description
+
+p.article
+  =< simple_format h(@article.text)
+.mb-1.text-muted
+  | last edit at
+  =< @article.updated_at.localtime.strftime("%d/%m/%Y")
+p
+  = link_to "Home", root_path
   
-  p
-    strong Text:
-    =< @article.text
-  
-  p
-    = link_to  "Back", articles_path
+  =< link_to "Articles", articles_path
