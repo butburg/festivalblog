@@ -1,11 +1,18 @@
+-provide(:title, @article.title)
+
 h2 =< @article.title
 .center
-  = image_tag("logo.png", alt: "P.E. Logo", title: "Home")
-  p
+  
+  = image_tag(@article.img.url, class: "articleImage")
+  p.articleDescription
     strong =< @article.description
 
+p.article
+  =< simple_format h(@article.text)
+.mb-1.text-muted
+  | last edit at
+  =< @article.updated_at.localtime.strftime("%d/%m/%Y")
 p
-  =< @article.text
-
-p
-  a href="#" onclick="history.go(-1)"  Go Back
+  = link_to "Home", root_path
+  
+  =< link_to "Articles", articles_path

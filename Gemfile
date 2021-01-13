@@ -25,6 +25,11 @@ gem "slim-rails"
 
 gem "bigdecimal", "1.3.5"
 
+
+# for articles image upload
+gem "carrierwave"
+gem "file_validators"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -36,6 +41,9 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"
+  # lat the minimagic gem work properly for img upload and scale
+  gem 'rmagick', '~> 2.15', '>= 2.15.4'
+
 end
 
 

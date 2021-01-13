@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get "about", to: "generalpages#about"
   get "legal", to: "generalpages#legal"
 

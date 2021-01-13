@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_143010) do
     t.string "title"
     t.string "description"
     t.text "text"
+    t.string "img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
