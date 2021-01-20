@@ -11,5 +11,5 @@ p
   =< @article.updated_at.localtime.strftime("%d/%m/%Y")
 p
   = link_to "Home", root_path
-  
-  =< link_to "Articles", articles_path
+  - if logged_in?
+    =< link_to "Articles", articles_path
