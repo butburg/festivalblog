@@ -58,7 +58,7 @@ Hard Features:
     * sqlite3 v 1.4.2
     * pg v 1.2
     * puma v 4.3
-
+    * imagemagick v 6.q16
 
 ### Tipps
 * Ruby was installed via rbenv
@@ -67,7 +67,10 @@ Hard Features:
 
 
 * #### Maybe you need to follow the steps below to run the app:
-
+  get imagemagick so upload function works
+  ```
+  apt install imagemagick libmagickcore-dev
+  ```
   install yarn
   ```bash
   curl -o- -L https://yarnpkg.com/install.sh | bash
