@@ -49,6 +49,7 @@ Hard Features:
 * Create a calendar entry when the corresponding event is confirmed
 
 ## Systemrequirements
+
 * Ruby
     * Version: 2.7.0
 * Rails
@@ -60,7 +61,9 @@ Hard Features:
     * puma v 4.3
     * imagemagick v 6.q16
 
+
 ### Tipps
+
 * Ruby was installed via rbenv
 * For a clean and nice! tutorial to install Ruby and Rails see https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-18-04
 * How to get yarn for your system: https://classic.yarnpkg.com/en/docs/install/#alternatives-stable
@@ -72,34 +75,48 @@ Hard Features:
   apt install imagemagick libmagickcore-dev
   ```
   install yarn
+
   ```bash
   curl -o- -L https://yarnpkg.com/install.sh | bash
   ```
+
   get nvm:
+
   ```bash
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
   ```
+
   get node.js with nvm:
+
   ```bash
   nvm nodejs
   ```
+
   get sqlite3 (maybe you need to run: apt-get install libsqlite3-dev):
+
   ```bash
   gem install sqlite3 -v '1.4.2'
   ```
+
   install gems:
+
   ```bash
   bundle install
   ```
+
   go to the directory of the app and check, if it runs without failure!
+
   ```bash
     rails s
-    ```
+  ```
+
   update packages with yarn
+
   ```bash
   yarn
   ```
 
 ## License
+
 All source code is available jointly under the MIT License and the Beerware License. See
 [LICENSE.md](LICENSE.md) for details.
