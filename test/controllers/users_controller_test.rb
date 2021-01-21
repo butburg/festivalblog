@@ -1,24 +1,64 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get show" do
-    get users_show_url
-    assert_response :success
+  setup do
+    @user = users(:one)
   end
 
   test "should get new" do
-    get users_new_url
+    get new_user_url
     assert_response :success
   end
 
-  test "should get create" do
-    get users_create_url
-    assert_response :success
+  test "should create user" do
+    assert_difference('User.count') do
+      post users_url, params: { user: { username: "TestUser", email: "TestEmail@test.de", password: "test123", password_confirmation: "test123"} }
+    end
+
+    assert_redirected_to user_url(User.last)
   end
 
-  test "should get destroy" do
-    get users_destroy_url
-    assert_response :success
+  test "should not create user (no username)" do
+    assert_no_difference('User.count') do
+      post users_url, params: { user: { username: "", email: "TestEmail@test.de", password: "test123", password_confirmation: "test123"} }
+    end
   end
 
+  test "should not create user(no email)" do
+    assert_no_difference('User.count') do
+      post users_url, params: { user: { username: "TestUser", email: "", password: "test123", password_confirmation: "test123"} }
+    end
+  end
+
+  test "should not create user (invalid pw 1)" do
+    assert_no_difference('User.count') do
+      post users_url, params: { user: { username: "TestUser", email: "TestEmail@test.de", password: "test12", password_confirmation: "test123"} }
+    end
+  end
+
+  test "should not create user (invalid pw 2)" do
+    assert_no_difference('User.count') do
+      post users_url, params: { user: { username: "TestUser", email: "TestEmail@test.de", password: "", password_confirmation: "test123"} }
+    end
+  end
+
+  test "should not create user (invalid pw 3)" do
+    assert_no_difference('User.count') do
+      post users_url, params: { user: { username: "TestUser", email: "TestEmail@test.de", password: "test123", password_confirmation: ""} }
+    end
+  end
+
+  test "should not create user (invalid pw 4)" do
+    assert_no_difference('User.count') do
+      post users_url, params: { user: { username: "TestUser", email: "TestEmail@test.de", password: "", password_confirmation: ""} }
+    end
+  end
+
+  test "should destroy user" do
+    assert_difference('User.count', -1) do
+      delete user_url(@user)
+    end
+
+    assert_redirected_to root_url
+  end
 end
