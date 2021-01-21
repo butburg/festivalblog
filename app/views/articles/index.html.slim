@@ -1,4 +1,4 @@
--provide(:title, "Articles")
+-provide(:title, "Index")
 
 h1 Articles
 
@@ -9,9 +9,9 @@ p.text-center
     .article-badge.col-md-6
       .row.no-gutters.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.position-relative
         .col-4.d-none.d-lg-block
-          = link_to image_tag(article.img.thumb.url, alt: "", class: "article-badge-img"), article_path(article)
+          = image_tag(article.img.thumb.url, alt: "", class: "article-badge-img")
         .col.p-3.d-flex.flex-column.position-static
-          h3= link_to article.title, article_path(article), class: "undercover"
+          h3.mb-0= link_to article.title, article_path(article), class: "undercover"
           .mb-1.text-muted
             | created at
             =< article.created_at.localtime.strftime("%k:%M %d/%m/%Y")
