@@ -20,6 +20,5 @@ class User < ApplicationRecord
 
   def strip_whitespace
     self.username = self.username.strip unless self.username.nil?
-    self.email = self.email.strip unless self.email.nil?
   end
 end
