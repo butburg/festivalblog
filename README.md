@@ -56,9 +56,6 @@ Hard Features:
     * Version: 6.0.3.4
 * Others:
     * yarn v 1.22.5
-    * sqlite3 v 1.4.2
-    * pg v 1.2
-    * puma v 4.3
     * imagemagick v 6.q16
 
 
@@ -69,7 +66,7 @@ Hard Features:
 * How to get yarn for your system: https://classic.yarnpkg.com/en/docs/install/#alternatives-stable
 
 
-* #### Maybe you need to follow the steps below to run the app:
+* #### You need to follow the steps below to run the app:
   get imagemagick so upload function works
   ```
   apt install imagemagick libmagickcore-dev
