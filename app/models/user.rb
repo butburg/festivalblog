@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  enum role: [:user, :vip, :admin]
+  enum role: [:user, :author, :admin]
 
   after_initialize :set_default_role, :if => :new_record?
 
@@ -29,4 +29,5 @@ class User < ApplicationRecord
   def strip_whitespace
     self.username = self.username.strip unless self.username.nil?
   end
+
 end
