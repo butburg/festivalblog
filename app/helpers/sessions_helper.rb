@@ -12,8 +12,22 @@ module SessionsHelper
   end
 
   # Returns true if the user is logged in, false otherwise.
-  def logged_in?
+  def is_logged_in?
     !current_user.nil?
+  end
+
+  # check the role
+  def is_author?
+    unless is_logged_in? && (current_user.author? || current_user.admin?)
+      redirect_to root_url, :alert => "Access denied."
+    end
+  end
+
+  # check if admin
+  def is_admin?
+    unless is_logged_in? && current_user.admin?
+      redirect_to :root_url, alert: "Access denied."
+    end
   end
 
   # Logs out the current user

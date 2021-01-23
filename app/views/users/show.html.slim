@@ -16,6 +16,4 @@
         li
           | Your role:
           =< @user.role
-      p =< link_to 'Delete account', user_path(current_user), \
-                         method: :delete, \
-                         data: {confirm: "Can't be restore! Are you sure?"}
+ 

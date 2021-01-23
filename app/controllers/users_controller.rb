@@ -1,17 +1,18 @@
 class UsersController < ApplicationController
 
   before_action :skip_password_attribute, only: :update
+  before_action :is_admin?, except: [:show, :new, :create]
 
   def index
     @users = User.all
-    unless logged_in? && current_user.admin?
+    unless is_logged_in? && current_user.admin?
       redirect_to root_url, :alert => "Access denied."
     end
   end
 
   def show
     @user = User.find(params[:id])
-    unless logged_in?
+    unless is_logged_in?
       redirect_to root_url, :alert => "Access denied."
     end
   end
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    unless logged_in? && current_user.admin?
+    unless is_logged_in? && current_user.admin?
       redirect_to :root_url, :alert => "Access denied."
     end
     if @user.update_attributes(user_role)
@@ -46,13 +47,12 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    unless logged_in? && current_user.admin?
+    unless is_logged_in? && current_user.admin?
       redirect_to :root_url, :alert => "Access denied."
     end
     @user.destroy
     redirect_to root_url
   end
-
 
   private
 
@@ -66,15 +66,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :role)
     end
 
-    def admin_only
-      unless logged_in? && current_user.admin?
-        redirect_to :root_url, alert: "Access denied."
-      end
-    end
-
     def user_role
       params.require(:user).permit(:role)
     end
-
 
 end
