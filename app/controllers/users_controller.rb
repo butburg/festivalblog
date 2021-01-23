@@ -12,8 +12,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
-    if @user.update(user_params)
+    if @user.update_attributes(user_role)
       redirect_to users_path, :notice => "User updated."
     else
       redirect_to users_path, :alert => "Unable to update user."
@@ -43,8 +42,14 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :role)
     end
 
+    def admin_only
+      unless current_user.admin?
+        redirect_to :back, :alert => "Access denied."
+      end
+    end
+
     def user_role
-      params.require(:user).permit(:role)
+      params.require(:user).permit(:password, :role)
     end
 
 

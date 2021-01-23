@@ -20,7 +20,4 @@
         = form.password_field :password_confirmation, class: "form-control"
         
       .form-group
-        = form.select(:role, User.roles.keys.map { |role| [role.titleize, role] })
-        
-      .form-group
         = form.submit
