@@ -19,26 +19,26 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create article" do
     assert_difference("Article.count") do
-      post articles_url, params: { article: { title: "Hello There!", description: "Hello There!Hello There!", text: "Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!" } }
+      post articles_url, params: { article: { title: "Test " * 5, description: "Test " * 5, text: "Test " * 5 } }
     end
     assert_redirected_to article_url(Article.last)
   end
 
   test "should not create article (missing title)" do
     assert_no_difference("Article.count") do
-      post articles_url, params: { article: { title: "", description: "Hello There!Hello There!", text: "Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!" } }
+      post articles_url, params: { article: { title: "", description: "Test " * 5, text: "Test " * 5 } }
     end
   end
 
   test "should not create article (missing description)" do
     assert_no_difference("Article.count") do
-      post articles_url, params: { article: { title: "Hello There!", description: "", text: "Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!Hello There!" } }
+      post articles_url, params: { article: { title: "Test " * 5, description: "", text: "Test " * 5 } }
     end
   end
 
   test "should not create article (missing text)" do
     assert_no_difference("Article.count") do
-      post articles_url, params: { article: { title: "Hello There!", description: "Hello There!Hello There!", text: "" } }
+      post articles_url, params: { article: { title: "Test " * 5, description: "Test " * 5, text: "" } }
     end
   end
 
