@@ -16,10 +16,18 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def check_if_author?
+    is_logged_in? && (current_user.author? || current_user.admin?)
+  end
+
+  def check_if_admin?
+    check_if_author? && current_user.admin?
+  end
+
   # check the role
   def is_author?
-    unless is_logged_in? && (current_user.author? || current_user.admin?)
-      redirect_to root_url, :alert => "Access denied."
+    unless is_logged_in? && (check_if_author?)
+      redirect_to root_url, alert: "Access denied."
     end
   end
 
