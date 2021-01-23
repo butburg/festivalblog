@@ -1,5 +1,13 @@
 class User < ApplicationRecord
 
+  enum role: [:user, :vip, :admin]
+
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :user
+  end
+
   before_validation :strip_whitespace
 
   before_save { email.downcase! }
