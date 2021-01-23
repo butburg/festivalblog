@@ -1,22 +1,17 @@
 class UsersController < ApplicationController
+
+  before_action :skip_password_attribute, only: :update
+
   def index
     @users = User.all
   end
+
   def show
     @user = User.find(params[:id])
   end
 
   def new
     @user = User.new
-  end
-
-  def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_role)
-      redirect_to users_path, :notice => "User updated."
-    else
-      redirect_to users_path, :alert => "Unable to update user."
-    end
   end
 
   def create
@@ -31,20 +26,37 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to users_path, notice: "User updated."
+    else
+      redirect_to users_path, alert: "Unable to update user."
+    end
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
     redirect_to root_url
   end
 
+
   private
+
+    def skip_password_attribute
+      if params[:password].blank? && params[:password_confirmation].blank?
+        params.except(:password, :password_confirmation)
+      end
+    end
+
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :role)
     end
 
     def admin_only
       unless current_user.admin?
-        redirect_to :back, :alert => "Access denied."
+        redirect_to :back, alert: "Access denied."
       end
     end
 
