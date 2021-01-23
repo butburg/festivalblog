@@ -4,10 +4,16 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    unless logged_in? && current_user.admin?
+      redirect_to root_url, :alert => "Access denied."
+    end
   end
 
   def show
     @user = User.find(params[:id])
+    unless logged_in?
+      redirect_to root_url, :alert => "Access denied."
+    end
   end
 
   def new
@@ -28,7 +34,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    unless logged_in? && current_user.admin?
+      redirect_to :root_url, :alert => "Access denied."
+    end
+    if @user.update_attributes(user_role)
       redirect_to users_path, notice: "User updated."
     else
       redirect_to users_path, alert: "Unable to update user."
@@ -37,6 +46,9 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    unless logged_in? && current_user.admin?
+      redirect_to :root_url, :alert => "Access denied."
+    end
     @user.destroy
     redirect_to root_url
   end
@@ -55,13 +67,13 @@ class UsersController < ApplicationController
     end
 
     def admin_only
-      unless current_user.admin?
-        redirect_to :back, alert: "Access denied."
+      unless logged_in? && current_user.admin?
+        redirect_to :root_url, alert: "Access denied."
       end
     end
 
     def user_role
-      params.require(:user).permit(:password, :role)
+      params.require(:user).permit(:role)
     end
 
 

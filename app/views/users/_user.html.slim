@@ -8,8 +8,7 @@ td
   = link_to user.email, user
 td
   = form_for(user) do |f|
-
-    = f.password_field :password, class: "form-control"
+    
     = f.select(:role, User.roles.keys.map { |role| [role.titleize, role] })
     = f.submit 'Change Role', :class => 'button-xs'
 
