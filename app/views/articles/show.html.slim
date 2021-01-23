@@ -2,11 +2,12 @@
 
 h2 =< @article.title
 .center
-  = image_tag(@article.img_url)
-  p
+  
+  = image_tag(@article.img.url, class: "articleImage")
+  p.articleDescription
     strong =< @article.description
 
-p
+p.article
   =< simple_format h(@article.text)
 .mb-1.text-muted
   | last edit at
