@@ -21,11 +21,9 @@ gem "jbuilder", "~> 2.7"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'bootstrap-sass'
+gem "slim-rails"
 
-gem 'slim-rails'
-
-gem 'bigdecimal', '1.3.5'
+gem "bigdecimal", "1.3.5"
 
 
 # for articles image upload
