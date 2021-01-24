@@ -1,55 +1,74 @@
 require "test_helper"
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
-  def setup
-    @base_title = "Festivalblog"
+  setup do
+    @article = articles(:one)
   end
 
-  #### ROOT HOME ####
-  test "should get root" do
-    get root_url
-    assert_response :success
-  end
-
-  test "should render Home root" do
-    get root_url
-    assert_select "title", "Home | #{@base_title}"
-  end
-
-
-  #### INDEX SHOW ####
   test "should get index" do
     get articles_url
+    assert_select "title", full_title("Index")
     assert_response :success
   end
 
-  test "should render index" do
-    get articles_url
-    assert_select "title", "#{@base_title}"
-  end
-
-
-  #### NEW ####
   test "should get new" do
-    get articles_url
+    get new_article_url
+    assert_select "title", full_title("New")
     assert_response :success
   end
 
-  test "should render new" do
-    get articles_url
-    assert_select "title", "#{@base_title}"
+  test "should create article" do
+    assert_difference("Article.count") do
+      post articles_url, params: { article: { title: "Test " * 5, description: "Test " * 5, text: "Test " * 5 } }
+    end
+    assert_redirected_to article_url(Article.last)
   end
 
+  test "should not create article (missing title)" do
+    assert_no_difference("Article.count") do
+      post articles_url, params: { article: { title: "", description: "Test " * 5, text: "Test " * 5 } }
+    end
+  end
 
-  #### EDIT ####
+  test "should not create article (missing description)" do
+    assert_no_difference("Article.count") do
+      post articles_url, params: { article: { title: "Test " * 5, description: "", text: "Test " * 5 } }
+    end
+  end
+
+  test "should not create article (missing text)" do
+    assert_no_difference("Article.count") do
+      post articles_url, params: { article: { title: "Test " * 5, description: "Test " * 5, text: "" } }
+    end
+  end
+
+  test "should show article" do
+    get article_url(@article)
+    assert_response :success
+  end
+
   test "should get edit" do
-    get articles_url
+    get edit_article_url(@article)
+    assert_select "title", full_title("Edit")
     assert_response :success
   end
 
-  test "should render edit" do
-    get articles_url
-    assert_select "title", "#{@base_title}"
+  test "should update article" do
+    patch article_url(@article), params: { article: {title: "Goodbye Then!"} }
+  end
+
+  test "should destroy article" do
+    assert_difference("Article.count", -1) do
+      delete article_url(@article)
+    end
+
+    assert_redirected_to articles_url
+  end
+
+  test "should get home" do
+    get root_url
+    assert_select "title", full_title("Home")
+    assert_response :success
   end
 
 end
