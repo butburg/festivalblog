@@ -1,18 +1,8 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- */
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
+  *= require bootstrap
+  *= require_tree .
+  *= require_self
+*/
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 //font-family: 'Maven Pro', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
@@ -77,7 +67,11 @@ h2 {
 
 p {
   font-size: 1em;
-  line-height: 1.7em;
+  line-height: 1.4em;
+}
+
+.articleDescription{
+  margin-top: 4px;
 }
 
 a:hover {
@@ -105,6 +99,10 @@ a:hover {
 .navbar:before, .navbar:after {
   display: inherit;
   content: inherit;
+}
+
+.text-muted{
+  font-size: 0.765em;
 }
 
 /* footer */
@@ -175,14 +173,13 @@ a.undercover {
 
 .article-badge-img {
   width: 100%;
-  height: 15vw;
   object-fit: cover;
 }
 
 .article-badge {
   h3, p {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 4px;
   }
 }
 
@@ -193,5 +190,12 @@ a.undercover {
 
 .card .btn:hover {
   color: $light-blue;
+}
+
+.articleImage{
+  width:100%;
+  height:100%;
+  max-height: 800px;
+  max-width: 800px;
 }
 
