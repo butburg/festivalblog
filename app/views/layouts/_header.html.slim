@@ -8,7 +8,7 @@ nav.navbar.navbar-expand-md.navbar-light.fixed-top
       li.nav-item = link_to "Home", root_path, class: "nav-link"
       li.nav-item = link_to "About", about_path, class: "nav-link"
     
-    ul.navbar-nav.ml-auto.right
+    ul.navbar-nav.right
       - if is_logged_in?
         - if check_if_admin?
           li.nav-item.dropdown
