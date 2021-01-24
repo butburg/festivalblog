@@ -10,6 +10,30 @@ nav.navbar.navbar-expand-md.navbar-light.fixed-top
     
     ul.navbar-nav.ml-auto.right
       - if is_logged_in?
+        - if check_if_admin?
+          li.nav-item.dropdown
+            a#navbarAdminDropdown.nav-link.dropdown-toggle [role="button"
+              data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" href="#"]
+              | Admin
+            .dropdown-menu aria-labelledby="navbarAdminDropdown"
+              = link_to "Create new Article", new_article_path, class: "dropdown-item"
+              .dropdown-divider
+              = link_to "Article Overview", articles_path, class: "dropdown-item"
+              .dropdown-divider
+              = link_to "User Overview", users_path, class: "dropdown-item"
+            
+        - elsif check_if_author?
+          li.nav-item.dropdown
+            a#navbarArticlesDropdown.nav-link.dropdown-toggle [role="button"
+              data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" href="#"]
+              | Articles
+            .dropdown-menu aria-labelledby="navbarArticlesDropdown"
+              = link_to "Create new", new_article_path, class: "dropdown-item"
+              .dropdown-divider
+              = link_to "Overview", articles_path, class: "dropdown-item"
+         
         li.nav-item.dropdown
           a#navbarUsersDropdown.nav-link.dropdown-toggle [role="button"
             data-toggle="dropdown" aria-haspopup="true"
@@ -19,30 +43,8 @@ nav.navbar.navbar-expand-md.navbar-light.fixed-top
             = link_to "Profile", current_user, class: "dropdown-item"
             .dropdown-divider
             = link_to "Log out", logout_path, method: :delete, \
-                    class: "dropdown-item"
-          - if check_if_admin?
-            li.nav-item.dropdown
-              a#navbarAdminDropdown.nav-link.dropdown-toggle [role="button"
-                data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" href="#"]
-                | Admin
-              .dropdown-menu aria-labelledby="navbarAdminDropdown"
-                = link_to "Create new Article", new_article_path, class: "dropdown-item"
-                .dropdown-divider
-                = link_to "Article Overview", articles_path, class: "dropdown-item"
-                .dropdown-divider
-                = link_to "User Overview", users_path, class: "dropdown-item"
-          - elsif check_if_author?
-            li.nav-item.dropdown
-              a#navbarArticlesDropdown.nav-link.dropdown-toggle [role="button"
-                data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" href="#"]
-                | Articles
-              .dropdown-menu aria-labelledby="navbarArticlesDropdown"
-                = link_to "Create new", new_article_path, class: "dropdown-item"
-                .dropdown-divider
-                = link_to "Overview", articles_path, class: "dropdown-item"
-          
-      - else
+                                                        class: "dropdown-item"
+        
+      - else 
         li.nav-item = link_to "Log in", login_path, class: "nav-link"
         li.nav-item = link_to "Sign up", signup_path, class: "nav-link"
