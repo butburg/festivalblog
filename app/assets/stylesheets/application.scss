@@ -107,6 +107,12 @@ a:hover {
   content: inherit;
 }
 
+.right{
+  @media all and (min-width: 768px) {
+    float: right;
+  }
+}
+
 /* footer */
 
 footer {

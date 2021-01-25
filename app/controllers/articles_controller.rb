@@ -1,7 +1,12 @@
 class ArticlesController < ApplicationController
+
+  before_action :is_author?, except: [:show, :home]
+
   def index
     @articles = Article.all
+    is_author?
   end
+
   def new
     @article = Article.new
   end
@@ -25,7 +30,6 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-
     if @article.update(article_params)
       redirect_to @article
     else
@@ -45,6 +49,7 @@ class ArticlesController < ApplicationController
   end
 
   private
+
     def article_params
       params.require(:article).permit(:title, :description, :text, :img, :created_at)
     end

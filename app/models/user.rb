@@ -1,5 +1,13 @@
 class User < ApplicationRecord
 
+  enum role: [:user, :author, :admin]
+
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :user
+  end
+
   before_validation :strip_whitespace
 
   before_save { email.downcase! }
@@ -11,7 +19,7 @@ class User < ApplicationRecord
   validates :email, format: {with: VALID_EMAIL_REGEX}
 
   has_secure_password
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, :on => :create
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
@@ -21,4 +29,5 @@ class User < ApplicationRecord
   def strip_whitespace
     self.username = self.username.strip unless self.username.nil?
   end
+
 end
