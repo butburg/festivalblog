@@ -4,5 +4,10 @@ script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.m
 script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 = csrf_meta_tags
 = csp_meta_tag
-= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+
+- if cookies[:dark]
+  = stylesheet_link_tag 'application_dark', media: 'all', 'data-turbolinks-track': 'reload'
+- else
+  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  
 = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'

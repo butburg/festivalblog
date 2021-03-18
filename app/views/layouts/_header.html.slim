@@ -1,3 +1,8 @@
+- if cookies[:dark]
+  = button_to 'Light Mode', light_path, method: :get
+- else
+  = button_to 'Dark Mode', dark_path, method: :get
+
 nav.navbar.navbar-expand-md.navbar-light.fixed-top
   = link_to image_tag("logo.png", alt: "P.E. Logo", size: "50", title: "Home"), root_path, id: "logo", class: "navbar-brand"
   button.navbar-toggler [type="button" data-toggle="collapse" data-target="#navbarResponsive"
