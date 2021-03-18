@@ -4,7 +4,9 @@ aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle naviga
   span.navbar-toggler-icon
 #navbarResponsive.collapse.navbar-collapse
   ul.navbar-nav
-    li.nav-item = link_to "Home", root_path, class: "nav-link"
+    li.nav-item = link_to root_path, class: "nav-link"
+      =icon 'house'
+      |  Home
     li.nav-item = link_to "About", about_path, class: "nav-link"
 
   ul.navbar-nav.right

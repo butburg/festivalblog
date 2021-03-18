@@ -4,8 +4,13 @@ footer#sticky-footer.py-4
       ul.nav
         li.nav-item.py-2
           - if cookies[:dark]
-            = button_to 'Light Mode', light_path, method: :get
+            = button_to light_path, method: :get
+              = icon 'sun' 
+              | Light Mode
+               
           - else
-            = button_to 'Dark Mode', dark_path, method: :get
+            = button_to dark_path, method: :get
+              =icon 'moon'
+              | Dark Mode
         li.nav-item = link_to "Legal", legal_path, class: "nav-link"
         li.nav-item.py-3 2020 P.E. Cooperation
