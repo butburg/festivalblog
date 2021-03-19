@@ -11,11 +11,13 @@
  * It is generally better to create a new file per style scope.
  */
 
+:root {
+  --primary-color: #8C3E77;
+  --secondary-color: #403873;
+  --highlight: #05F2DB;
+  --background: #C5D9D2;
+  --fundament: #0D0D0D;
+}
 
-$primary-color: #8C3E77;
-$secondary-color: #403873;
-$highlight: #05F2DB;
-$background: #C5D9D2;
-$fundament: #0D0D0D;
 
 @import "components.scss";
