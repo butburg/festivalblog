@@ -7,7 +7,9 @@ aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle naviga
     li.nav-item = link_to root_path, class: "nav-link"
       =icon 'house'
       |  Home
-    li.nav-item = link_to "About", about_path, class: "nav-link"
+    li.nav-item = link_to about_path, class: "nav-link"
+      = icon 'info-circle'
+      |  About
 
   ul.navbar-nav.right
     - if is_logged_in?
@@ -16,34 +18,54 @@ aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle naviga
           a#navbarAdminDropdown.nav-link.dropdown-toggle [role="button"
             data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false" href="#"]
-            | Admin
+            =icon 'eye'
+            |   Admin
           .dropdown-menu aria-labelledby="navbarAdminDropdown"
-            = link_to "Create new Article", new_article_path, class: "dropdown-item"
+            = link_to new_article_path, class: "dropdown-item"
+              =icon 'journal-plus'
+              |  New Article
             .dropdown-divider
-            = link_to "Article Overview", articles_path, class: "dropdown-item"
+            = link_to articles_path, class: "dropdown-item"
+              =icon 'journals'
+              |  Article Overview
             .dropdown-divider
-            = link_to "User Overview", users_path, class: "dropdown-item"
+            = link_to users_path, class: "dropdown-item"
+              =icon 'people-fill'
+              |  User Overview
 
       - elsif check_if_author?
       li.nav-item.dropdown
         a#navbarArticlesDropdown.nav-link.dropdown-toggle [role="button"
           data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false" href="#"]
-          | Articles
+          =icon 'journal-text'
+          |   Articles
         .dropdown-menu aria-labelledby="navbarArticlesDropdown"
-          = link_to "Create new", new_article_path, class: "dropdown-item"
+          = link_to new_article_path, class: "dropdown-item"
+            =icon 'journal-plus'
+            |  New
           .dropdown-divider
-          = link_to "Overview", articles_path, class: "dropdown-item"
+          = link_to articles_path, class: "dropdown-item"
+            =icon 'journals'
+            |  Overview
       li.nav-item.dropdown
         a#navbarUsersDropdown.nav-link.dropdown-toggle [role="button"
           data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false" href="#"]
-          | User
+          =icon 'person-circle'
+          |   User
         .dropdown-menu aria-labelledby="navbarUsersDropdown"
-          = link_to "Profile", current_user, class: "dropdown-item"
+          = link_to current_user, class: "dropdown-item"
+            =icon 'person-lines-fill'
+            |  Profile
           .dropdown-divider
-          = link_to "Log out", logout_path, method: :delete, \
-                                                          class: "dropdown-item"
+          = link_to logout_path, method: :delete, \
+            class: "dropdown-item"
+            =icon 'door-open-fill'
+            |  Log out
     - else
-      li.nav-item = link_to "Log in", login_path, class: "nav-link"
-      li.nav-item = link_to "Sign up", signup_path, class: "nav-link"
+      li.nav-item = link_to  login_path, class: "nav-link"
+        =icon 'key'
+        |   Log in
+      li.nav-item = link_to signup_path, class: "nav-link"
+        |   Sign up
