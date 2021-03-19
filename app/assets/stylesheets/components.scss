@@ -8,7 +8,6 @@
 /* universal */
 
 
-
 body {
   height: 100%;
   background-color: var(--background);
@@ -19,7 +18,7 @@ body {
   font-size: 17px;
 }
 
-svg{
+svg {
   margin-bottom: 4px;
 }
 
@@ -91,7 +90,7 @@ a:hover {
   content: inherit;
 }
 
-.right{
+.right {
   @media all and (min-width: 768px) {
     float: right;
   }
@@ -100,15 +99,9 @@ a:hover {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: 40px;
   border-top: 2px solid var(--secondary-color);
   font-size: 0.765em;
-
-  a {
-    &:hover {
-      background-color: inherit !important;
-    }
-  }
 
   small {
     float: left;
@@ -122,8 +115,18 @@ footer {
       float: left;
       margin-left: 15px;
     }
+
+    li.footer-text {
+      margin-top: 6px;
+      a {
+        &:hover {
+          background-color: inherit !important;
+        }
+      }
+    }
   }
 }
+
 
 .row {
   margin-right: 0;
@@ -172,11 +175,21 @@ a.undercover {
   }
 }
 
-.card .btn {
+
+
+.nav a.btn:hover {
+  color: var(--highlight);
   background-color: var(--fundament);
   border-color: var(--highlight);
 }
 
-.card .btn:hover {
+a.btn {
+  background-color: var(--fundament);
+  border-color: var(--highlight);
+}
+
+a.btn:hover {
   color: var(--highlight);
+  background-color: var(--fundament);
+  border-color: var(--highlight);
 }
