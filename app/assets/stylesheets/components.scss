@@ -176,19 +176,13 @@ a.undercover {
 }
 
 
-
-.nav a.btn:hover {
-  color: var(--highlight);
+a.btn, input[type=submit], input[type=file]  {
   background-color: var(--fundament);
   border-color: var(--highlight);
+  color: #fff;
 }
 
-a.btn {
-  background-color: var(--fundament);
-  border-color: var(--highlight);
-}
-
-a.btn:hover {
+a.btn:hover, input[type=submit]:hover, input[type=file]:hover  {
   color: var(--highlight);
   background-color: var(--fundament);
   border-color: var(--highlight);
