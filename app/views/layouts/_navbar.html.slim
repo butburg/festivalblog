@@ -1,0 +1,49 @@
+= link_to image_tag("logo.png", alt: "P.E. Logo", size: "50", title: "Home"), root_path, id: "logo", class: "navbar-brand"
+button.navbar-toggler [type="button" data-toggle="collapse" data-target="#navbarResponsive"
+aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"]
+  span.navbar-toggler-icon
+#navbarResponsive.collapse.navbar-collapse
+  ul.navbar-nav
+    li.nav-item = link_to root_path, class: "nav-link"
+      =icon 'house'
+      |  Home
+    li.nav-item = link_to "About", about_path, class: "nav-link"
+
+  ul.navbar-nav.right
+    - if is_logged_in?
+      - if check_if_admin?
+        li.nav-item.dropdown
+          a#navbarAdminDropdown.nav-link.dropdown-toggle [role="button"
+            data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" href="#"]
+            | Admin
+          .dropdown-menu aria-labelledby="navbarAdminDropdown"
+            = link_to "Create new Article", new_article_path, class: "dropdown-item"
+            .dropdown-divider
+            = link_to "Article Overview", articles_path, class: "dropdown-item"
+            .dropdown-divider
+            = link_to "User Overview", users_path, class: "dropdown-item"
+
+      - elsif check_if_author?
+      li.nav-item.dropdown
+        a#navbarArticlesDropdown.nav-link.dropdown-toggle [role="button"
+          data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" href="#"]
+          | Articles
+        .dropdown-menu aria-labelledby="navbarArticlesDropdown"
+          = link_to "Create new", new_article_path, class: "dropdown-item"
+          .dropdown-divider
+          = link_to "Overview", articles_path, class: "dropdown-item"
+      li.nav-item.dropdown
+        a#navbarUsersDropdown.nav-link.dropdown-toggle [role="button"
+          data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" href="#"]
+          | User
+        .dropdown-menu aria-labelledby="navbarUsersDropdown"
+          = link_to "Profile", current_user, class: "dropdown-item"
+          .dropdown-divider
+          = link_to "Log out", logout_path, method: :delete, \
+                                                          class: "dropdown-item"
+    - else
+      li.nav-item = link_to "Log in", login_path, class: "nav-link"
+      li.nav-item = link_to "Sign up", signup_path, class: "nav-link"
