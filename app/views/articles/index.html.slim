@@ -3,7 +3,9 @@
 h1 Articles
 
 p.text-center     
-  = link_to "Write New Article", new_article_path
+  = link_to new_article_path
+    =icon 'journal-plus'
+    |  New Article
 .row.mb-2
   - @articles.reverse_each do |article|
     .article-badge.col-md-6
@@ -21,8 +23,12 @@ p.text-center
 
           p.card-text.mb-auto= article.description
           p
-            = link_to 'Edit', edit_article_path(article)
+            = link_to edit_article_path(article)
+              =icon 'pencil-fill'
+              |  Edit
             |
-            =< link_to 'Destroy', article_path(article), \
+            =< link_to article_path(article), \
                          method: :delete, \
                          data: {confirm: 'Are you sure?'}
+              =icon 'trash'
+              | Delete
