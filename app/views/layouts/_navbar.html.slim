@@ -34,20 +34,20 @@ aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle naviga
               |  User Overview
 
       - elsif check_if_author?
-      li.nav-item.dropdown
-        a#navbarArticlesDropdown.nav-link.dropdown-toggle [role="button"
-          data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false" href="#"]
-          =icon 'journal-text'
-          |   Articles
-        .dropdown-menu aria-labelledby="navbarArticlesDropdown"
-          = link_to new_article_path, class: "dropdown-item"
-            =icon 'journal-plus'
-            |  New
-          .dropdown-divider
-          = link_to articles_path, class: "dropdown-item"
-            =icon 'journals'
-            |  Overview
+        li.nav-item.dropdown
+          a#navbarArticlesDropdown.nav-link.dropdown-toggle [role="button"
+            data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" href="#"]
+            =icon 'journal-text'
+            |   Articles
+          .dropdown-menu aria-labelledby="navbarArticlesDropdown"
+            = link_to new_article_path, class: "dropdown-item"
+              =icon 'journal-plus'
+              |  New
+            .dropdown-divider
+            = link_to articles_path, class: "dropdown-item"
+              =icon 'journals'
+              |  Overview
       li.nav-item.dropdown
         a#navbarUsersDropdown.nav-link.dropdown-toggle [role="button"
           data-toggle="dropdown" aria-haspopup="true"
