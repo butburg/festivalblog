@@ -7,10 +7,11 @@ h1 Update Article
 p
   = link_to article_path, \
             method: :delete, \
-            data: {confirm: 'Are you sure?'}
+            data: {confirm: 'Are you sure?'}, \
+            class: "btn btn-danger"
     =icon 'trash'
     |  Delete
-  
+
 p  
   =< link_to articles_path
     =icon 'arrow-left-circle'
