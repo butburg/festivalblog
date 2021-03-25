@@ -5,6 +5,9 @@
         = alert
 
 td
+  p=user.email   
+
+td
   = link_to user.username, user
 td
   = form_for(user) do |f|
@@ -12,8 +15,9 @@ td
     = f.submit :class => 'button-xs'
 
 td
-  - if user != current_user
-      = link_to(user_path(user), :data => {:confirm => "Can't be restore! Are you sure?"}, :method => :delete, :class => 'button-xs') 
-        =icon 'person-x'
-        |  Remove
+  p
+    - if user != current_user
+        = link_to(user_path(user), :data => {:confirm => "Can't be restore! Are you sure?"}, :method => :delete, :class => 'btn-xs btn btn-danger') 
+          =icon 'person-x'
+          |  Remove
  
