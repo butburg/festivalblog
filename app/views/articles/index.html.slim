@@ -3,7 +3,7 @@
 h1 Articles
 
 p.text-center     
-  = link_to new_article_path, class: "btn btn-primary"
+  = link_to new_article_path, class: "btn btn"
     =icon 'journal-plus'
     |  New Article
 .row.mb-2
@@ -23,11 +23,11 @@ p.text-center
 
           p.card-text.mb-auto= article.description
           p
-            = link_to edit_article_path(article), class: "btn btn-primary"
+            = link_to edit_article_path(article), class: "btn btn"
               =icon 'pencil-fill'
               |  Edit
             
-            =< link_to article_path(article), class: "btn btn-primary", \
+            =< link_to article_path(article), class: "btn btn", \
                          method: :delete, \
                          data: {confirm: 'Are you sure?'}
               =icon 'trash'

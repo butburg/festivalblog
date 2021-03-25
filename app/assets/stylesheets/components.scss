@@ -179,6 +179,7 @@ a.undercover {
   }
 }
 
+/* button */
 
 a.btn, input[type=submit], input[type=file]  {
   background-color: var(--fundament);
@@ -186,8 +187,9 @@ a.btn, input[type=submit], input[type=file]  {
   color: #fff;
 }
 
-a.btn:hover, input[type=submit]:hover, input[type=file]:hover  {
+a.btn:hover, a.btn:active, input[type=submit]:hover, input[type=file]:hover  {
   color: var(--highlight);
   background-color: var(--fundament);
   border-color: var(--highlight);
 }
+

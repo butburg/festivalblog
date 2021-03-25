@@ -4,12 +4,12 @@ footer#sticky-footer.py-4
       ul.nav
         li.nav-item.py-2
           - if cookies[:dark]
-            = link_to light_path, method: :get, class: "btn btn-primary"
+            = link_to light_path, method: :get, class: "btn btn"
               = icon 'sun' 
               |  Light Mode
                
           - else
-            = link_to dark_path, method: :get, class: "btn btn-primary"
+            = link_to dark_path, method: :get, class: "btn btn"
               =icon 'moon'
               |  Dark Mode
         li.nav-item.footer-text = link_to "Legal", legal_path, class: "nav-link"
