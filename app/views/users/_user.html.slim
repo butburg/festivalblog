@@ -5,12 +5,19 @@
         = alert
 
 td
+  p=user.email   
+
+td
   = link_to user.username, user
 td
   = form_for(user) do |f|
-
     = f.select(:role, User.roles.keys.map { |role| [role.titleize, role] })
-    = f.submit 'Change Role', :class => 'button-xs'
+    = f.submit :class => 'button-xs'
 
 td
-  = link_to("Delete user", user_path(user), :data => {:confirm => "Can't be restore! Are you sure?"}, :method => :delete, :class => 'button-xs') unless user == current_user
+  p
+    - if user != current_user
+        = link_to(user_path(user), :data => {:confirm => "Can't be restore! Are you sure?"}, :method => :delete, :class => 'btn-xs btn btn-danger') 
+          =icon 'person-x'
+          |  Remove
+ 
